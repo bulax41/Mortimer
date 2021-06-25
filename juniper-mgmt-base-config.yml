@@ -1,0 +1,47 @@
+- name: Juniper Management Switches Base Config
+  gather_facts: no
+  hosts: mgmt_switches
+  roles:
+    - Juniper.junos
+
+  tasks:
+   - name: Merge Config
+     juniper_junos_config:
+      template: "templates/juniper-switch-mgmt-config.j2"
+      load: "merge"
+      format: "set"
+      provider:
+        timeout: 60
+      vars:
+        model: "{{ model }}"
+        syslog_server: "{{ syslog_server }}"
+        ipa_server: "{{ ipa_server }}"
+        time_zone: "{{ time_zone }}"
+        host_name: "{{ inventory_hostname }}"
+        ipa_servers: ["10.70.70.254","10.72.72.254","10.71.71.254","10.74.74.254","10.75.75.254","10.76.76.254","10.77.77.254"]
+     register: response
+
+
+
+
+- name: Juniper Management firewall Base Config
+  gather_facts: no
+  hosts: mgmt_firewalls
+  roles:
+    - Juniper.junos
+
+  tasks:
+   - name: Merge Config
+     juniper_junos_config:
+      template: "templates/juniper-mgmt-firewall.j2"
+      load: "merge"
+      format: "set"
+      provider:
+        timeout: 60
+      vars:
+        syslog_server: "{{ syslog_server }}"
+        ipa_server: "{{ ipa_server }}"
+        time_zone: "{{ time_zone }}"
+        host_name: "{{ inventory_hostname }}"
+        ipa_servers: ["10.70.70.254","10.72.72.254","10.71.71.254","10.74.74.254","10.75.75.254","10.76.76.254","10.77.77.254"]
+     register: response
