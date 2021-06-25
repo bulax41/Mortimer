@@ -1,6 +1,5 @@
 - name: Juniper Management Switches Base Config
   gather_facts: no
-  hosts: mgmt_switches
   roles:
     - Juniper.junos
 
@@ -26,7 +25,6 @@
 
 - name: Juniper Management firewall Base Config
   gather_facts: no
-  hosts: mgmt_firewalls
   roles:
     - Juniper.junos
 
