@@ -1,6 +1,6 @@
 - name: Juniper Management Switches Base Config
   gather_facts: no
-  hosts:
+  hosts: vc01-mgmt-ld7
   roles:
     - Juniper.junos
 
