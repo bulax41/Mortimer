@@ -2,3 +2,8 @@
 roles:
   - name: Juniper.junos
 
+
+collections:
+  - name: juniper.device
+
+
