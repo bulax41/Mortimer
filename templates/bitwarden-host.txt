@@ -1,0 +1,1 @@
+Ansible,1,login,{{ inventory_hostname }},Created by Ansible,,,root,{{ root_pass }},
