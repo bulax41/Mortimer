@@ -9,6 +9,7 @@ validate_certs: True
 config_context: False
 group_by:
   - device_roles
+  - region
 query_filters:
   - role: management-switch
 device_query_filters:
