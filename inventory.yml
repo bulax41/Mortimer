@@ -1,0 +1,13 @@
+---
+plugin: netbox.netbox.nb_inventory
+api_endpoint: https://netbox.beeksfx.com
+compose:
+  ansible_network_os: platform.slug
+validate_certs: True
+config_context: False
+group_by:
+  - device_roles
+query_filters:
+  - role: network-edge-router
+device_query_filters:
+  - has_primary_ip: 'true'
