@@ -1,0 +1,7 @@
+---
+
+collections:
+  - name: juniper.device
+  - name: netbox.netbox
+
+
