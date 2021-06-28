@@ -1,0 +1,17 @@
+---
+
+plugin: netbox.netbox.nb_inventory
+api_endpoint: https://netbox.beeksfx.com
+token: ee2f2509347323959da6df3796850da94a503d6f
+compose:
+  ansible_network_os: platform.slug
+validate_certs: True
+config_context: False
+group_by:
+  - device_roles
+  - region
+query_filters:
+  - role: management-firewall
+device_query_filters:
+  - has_primary_ip: 'true'
+
