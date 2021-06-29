@@ -1,7 +1,7 @@
 - name: Juniper Management Switches Base Config
   gather_facts: no
   hosts: 
-    - management-switches
+    - management-switch
   remote_user: ansible
   roles:
     - Juniper.junos
