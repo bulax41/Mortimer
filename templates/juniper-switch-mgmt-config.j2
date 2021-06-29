@@ -48,10 +48,6 @@ set system syslog file messages match "!(.*license*.)"
 set system syslog file interactive-commands interactive-commands any
 set system syslog file firewall_filter firewall any
 set system max-configurations-on-flash 20
-{% if model != "2200" %}
-set routing-options nonstop-routing
-set chassis redundancy graceful-switchover
-{% endif %}
 
 {% for server in ipa_servers %}
 set system ntp server {{ server }}
