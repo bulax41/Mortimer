@@ -27,4 +27,6 @@ device_query_filters:
   - has_primary_ip: 'true'
 interfaces: 'false'
 group_names_raw: 'true'
+compose:
+  - model: device_types
 
