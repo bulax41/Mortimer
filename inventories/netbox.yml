@@ -11,7 +11,17 @@ group_by:
   - device_roles
   - region
 query_filters:
+  - role: access-switch
+  - role: management-switch
+  - role: wan-switch
+  - role: management-firewall
   - role: wan-router
+  - role: wan-esx
+  - role: trading-switch
+  - role: tapagg-switch
+  - role: ipmi-switch
+  - role: console-server
+  - role: vps-switch
 device_query_filters:
   - has_primary_ip: 'true'
 
