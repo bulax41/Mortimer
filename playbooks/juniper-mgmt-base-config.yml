@@ -9,7 +9,7 @@
   tasks:
    - name: Merge Config
      juniper_junos_config:
-      template: "../templates/juniper-switch-mgmt-config.j2"
+      template: ../templates/juniper-switch-mgmt-config.j2
       load: "merge"
       format: "set"
       provider:
