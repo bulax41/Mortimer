@@ -25,6 +25,6 @@ query_filters:
   - role: backup-switch
 device_query_filters:
   - has_primary_ip: 'true'
-interfaces: 'true'
+interfaces: 'false'
 group_names_raw: 'true'
 
