@@ -22,6 +22,9 @@ query_filters:
   - role: ipmi-switch
   - role: console-server
   - role: vps-switch
+  - role: backup-switch
 device_query_filters:
   - has_primary_ip: 'true'
+interfaces: 'true'
+group_names_raw: 'true'
 
