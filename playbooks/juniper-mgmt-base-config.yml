@@ -14,7 +14,7 @@
       format: "set"
       provider:
         timeout: 60
-     vars:
+      vars:
         model: "{{ model }}"
         syslog_server: "{{ syslog_server }}"
         ipa_server: "{{ ipa_server }}"
