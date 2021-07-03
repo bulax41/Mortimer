@@ -1,0 +1,27 @@
+- name: Management Nework Backup Config
+  gather_facts: no
+  hosts: backup_switches
+  roles:
+    - Juniper.junos
+
+  tasks:
+   - name: Backup Config
+     juniper_junos_config:
+       retrieve: "committed"
+       dest_dir: "{{ playbook_dir }}/backups"
+       timeout: 60
+     register: response
+
+- name: Access Nework Backup Config
+  gather_facts: no
+  hosts: access-network
+  roles:
+    - Juniper.junos
+
+  tasks:
+   - name: Backup Config
+     juniper_junos_config:
+       retrieve: "committed"
+       dest_dir: "{{ playbook_dir }}/backups"
+       timeout: 60
+     register: response
