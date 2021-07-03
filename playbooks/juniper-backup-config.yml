@@ -1,27 +1,27 @@
-- name: Management Nework Backup Config
+- name:  Backup Config
   gather_facts: no
-  hosts: backup_switches
+  hosts: 
+    - all
   roles:
     - Juniper.junos
-
+  vars:
+    - git_server: "10.78.78.50"
+    - git_directory: "backups"
+    
   tasks:
+
+   - name: Clone Backup Repo
+     delegate_to: localhost
+     ansible.builtin.git:
+       repo: "git@{{ git_server }}:backups.git"
+       dest: "{{ git_directory }}"
+       accept_hostkey: yes
+       update: yes
+
    - name: Backup Config
+     register: response
      juniper_junos_config:
        retrieve: "committed"
-       dest_dir: "{{ playbook_dir }}/backups"
+       dest_dir: "{{ git_directory }}/backups"
        timeout: 60
-     register: response
 
-- name: Access Nework Backup Config
-  gather_facts: no
-  hosts: access-network
-  roles:
-    - Juniper.junos
-
-  tasks:
-   - name: Backup Config
-     juniper_junos_config:
-       retrieve: "committed"
-       dest_dir: "{{ playbook_dir }}/backups"
-       timeout: 60
-     register: response
