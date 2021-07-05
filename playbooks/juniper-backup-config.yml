@@ -46,3 +46,16 @@
        dest_dir: "playbooks/{{ git_directory }}"
        timeout: 60
 
+   - name: Git ACP
+     run_once: yes
+     delegate_to: localhost
+     git_acp:
+       comment: "Ansible "
+       path: backups
+       branch: master
+       add:
+       mode: ssh
+       url: "git@{{ git_server }}:backups.git"
+       
+
+    
