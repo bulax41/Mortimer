@@ -4,6 +4,7 @@
   gather_facts: no
   hosts: 
     - management-switch
+    - access-switch
   roles:
     - Juniper.junos
   vars:
