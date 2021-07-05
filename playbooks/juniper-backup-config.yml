@@ -59,7 +59,15 @@
    - name: Git push
      run_once: yes
      delegate_to: localhost
+     ignore_errors: yes
      ansible.builtin.command: git push
      args:
        chdir: backups
     
+
+
+
+
+
+
+
