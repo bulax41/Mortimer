@@ -21,13 +21,6 @@
        accept_hostkey: yes
        update: yes
 
-   - name: Directory Check
-     run_once: yes
-     delegate_to: localhost
-     file:
-       path: "{{ git_directory }}"
-       state: directory
-
    - name: Backup Config
      juniper_junos_config:
        retrieve: "committed"
