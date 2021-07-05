@@ -5,10 +5,10 @@
   roles:
     - Juniper.junos
   vars:
-    - git_server: "10.78.78.50"
-    - git_directory: "backups"
-    - ansible_network_os=junos
-    - ansible_connection=netconf 
+    git_server: "10.78.78.50"
+    git_directory: "backups"
+    ansible_network_os=junos
+    ansible_connection=netconf 
 
   tasks:
 
