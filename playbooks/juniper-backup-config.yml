@@ -44,6 +44,6 @@
      register: response
      juniper_junos_config:
        retrieve: "committed"
-       dest_dir: "./{{ git_directory }}"
+       dest_dir: "playbooks/{{ git_directory }}"
        timeout: 60
 
