@@ -28,6 +28,10 @@
        path: "{{ git_directory }}"
        state: directory
 
+   - name: LS
+     ansible.builtin.shell:
+       cmd: ls -l 
+
    - name: Backup Config
      register: response
      juniper_junos_config:
