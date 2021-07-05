@@ -25,6 +25,6 @@
      register: response
      juniper_junos_config:
        retrieve: "committed"
-       dest_dir: "."
+       dest_dir: "./{{ git_directory }}"
        timeout: 60
 
