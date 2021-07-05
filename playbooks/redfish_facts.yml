@@ -1,0 +1,21 @@
+- name:  IPMI Facts
+  gather_facts: no
+  hosts: 10.74.83.5
+  var:
+    - baseuri: "https://10.74.83.5"
+    - username: "admin"
+    - password: "VDIware123" 
+
+  tasks:
+
+  - name: Get Session information
+    community.general.redfish_info:
+      baseuri: "{{ baseuri }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+    register: result
+  - ansible.builtin.debug:
+    msg: "{{ result.redfish_facts.session.entries | to_nice_json }}"
+
+
+
