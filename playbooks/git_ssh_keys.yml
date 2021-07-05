@@ -1,6 +1,6 @@
 - name:  Setup SSH Keys for GIT Repo
   gather_facts: no
-  hosts: git_server
+  hosts: nms50-awx-ld
     
     
 
