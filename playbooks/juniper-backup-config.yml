@@ -46,16 +46,10 @@
        dest_dir: "playbooks/{{ git_directory }}"
        timeout: 60
 
-   - name: Git ACP
+   - name: Git Add, Commit
      run_once: yes
      delegate_to: localhost
-     git_acp:
-       comment: "Ansible "
-       path: backups
-       branch: master
-       add:
-       mode: ssh
-       url: "git@{{ git_server }}:backups.git"
-       
+     ansible.builtin.command: git commit -a -m "ansible"
+       chdir: backups
 
     
