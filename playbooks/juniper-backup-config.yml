@@ -1,4 +1,6 @@
 - name:  Backup Config
+  connection: network_cli
+  become: no
   gather_facts: no
   hosts: 
     - management-switch
