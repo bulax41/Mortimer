@@ -33,15 +33,14 @@
      delegate_to: localhost
      register: response
      ansible.builtin.shell:
-       cmd: ls -l 
+       cmd: pwd
 
    - name: LS Per Host
      register: response
      ansible.builtin.shell:
-       cmd: ls -l
+       cmd: pwd
 
    - name: Backup Config
-     register: response
      juniper_junos_config:
        retrieve: "committed"
        dest_dir: "playbooks/{{ git_directory }}"
