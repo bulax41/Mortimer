@@ -25,5 +25,5 @@
       authorized_key:
         user: git
         state: present
-        key: "{{ lookup('file','~/.ssh/id_rsa') }}"
+        key: "{{ lookup('file','~/.ssh/id_rsa.pub') }}"
 
