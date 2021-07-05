@@ -50,6 +50,7 @@
      run_once: yes
      delegate_to: localhost
      ansible.builtin.command: git commit -a -m ansible
+     args:
        chdir: backups
 
     
