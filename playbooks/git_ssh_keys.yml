@@ -6,7 +6,7 @@
 
   tasks:
 
-    - name Generate SSH Keys
+    - name: Generate SSH Keys
       delegate_to: localhost
       openssh_keypair:
         path: "~/.ssh/id_rsa"
@@ -15,7 +15,7 @@
         state: present
         force: no        
 
-    - name Copy to GIT Server 
+    - name: Copy to GIT Server 
       authorized_key:
         user: git
         state: present
