@@ -50,8 +50,10 @@
 
 
    - name: Git Commit
+     register: commit
      run_once: yes
      delegate_to: localhost
+     ignore_errors: yes
      ansible.builtin.command: git commit -a -m ansible
      args:
        chdir: backups
@@ -59,10 +61,10 @@
    - name: Git push
      run_once: yes
      delegate_to: localhost
-     ignore_errors: yes
      ansible.builtin.command: git push
      args:
        chdir: backups
+     when: commit.changed
     
 
 
