@@ -6,6 +6,12 @@
 
   tasks:
 
+    - name: .ssh directory
+      delegate_to: localhost
+      file:
+        path: "~/.ssh"
+        state: directory
+
     - name: Generate SSH Keys
       delegate_to: localhost
       openssh_keypair:
