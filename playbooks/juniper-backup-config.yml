@@ -29,6 +29,7 @@
        state: directory
 
    - name: LS
+     register: response
      ansible.builtin.shell:
        cmd: ls -l 
 
