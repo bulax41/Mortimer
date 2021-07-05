@@ -49,7 +49,7 @@
    - name: Git Add, Commit
      run_once: yes
      delegate_to: localhost
-     ansible.builtin.command: git commit -a -m "ansible"
+     ansible.builtin.command: git commit -a -m ansible
        chdir: backups
 
     
