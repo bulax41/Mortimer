@@ -46,6 +46,20 @@
        dest_dir: "playbooks/{{ git_directory }}"
        timeout: 60
 
+   - name: Git Config user.name
+     run_once: yes
+     delegate_to: localhost
+     ansible.builtin.command: git config user.name AWX
+     args:
+       chdir: backups
+
+   - name: Git Config user.email
+     run_once: yes
+     delegate_to: localhost
+     ansible.builtin.command: git config user.email awx@beeksfx.com
+     args:
+       chdir: backups
+
    - name: Git Add, Commit
      run_once: yes
      delegate_to: localhost
