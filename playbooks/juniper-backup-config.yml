@@ -47,8 +47,16 @@
      ansible.builtin.command: git config user.email awx@beeksfx.com
      args:
        chdir: backups
+ 
+   - name: Git Add
+     run_once: yes
+     delegate_to: localhost
+     ansible.builtin.command: git add .
+     args:
+       chdir: backups
 
-   - name: Git Add, Commit
+
+   - name: Git Commit
      run_once: yes
      delegate_to: localhost
      ansible.builtin.command: git commit -a -m ansible
