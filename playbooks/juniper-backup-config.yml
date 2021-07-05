@@ -63,4 +63,10 @@
      args:
        chdir: backups
 
+   - name: Git push
+     run_once: yes
+     delegate_to: localhost
+     ansible.builtin.command: git push
+     args:
+       chdir: backups
     
