@@ -29,6 +29,8 @@
        state: directory
 
    - name: LS
+     run_once: yes
+     delegate_to: localhost
      register: response
      ansible.builtin.shell:
        cmd: ls -l 
