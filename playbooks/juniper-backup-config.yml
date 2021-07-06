@@ -23,6 +23,7 @@
        update: yes
 
    - name: Backup Config
+     ignore_errors: yes
      juniper_junos_config:
        retrieve: "committed"
        dest_dir: "playbooks/{{ git_directory }}"
