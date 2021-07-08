@@ -42,7 +42,7 @@
       juniper_junos_command:
         commands: "show chassis hardware "
         format: json
-        dest_dir: "{{ facts_build_dir }}/"
+        dest_dir: "playbooks/{{ facts_build_dir }}/"
       register: serials
 
     - name: debug
