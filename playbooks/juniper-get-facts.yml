@@ -1,0 +1,71 @@
+- name: Juniper Facts
+  connection: local
+  gather_facts: no
+  hosts:
+    - access_switches
+    - mgmt_network
+    - wan_switches
+  roles:
+    - Juniper.junos
+  vars:
+    facts_dir: "./facts"
+    facts_build_dir: "./facts/build"
+    systime: "{{ ansible_date_time.time }}"
+    timestamp: "{{ ansible_date_time.date }}_{{ systime }}"
+    report_file: "{{ facts_dir }}/device-facts_{{ timestamp }}.csv"
+
+  tasks:
+    - name: get localhost environment info
+      setup:
+      run_once: yes
+      delegate_to: localhost
+
+    - name: confirm/create report directory
+      file:
+        path: "{{ facts_dir }}"
+        state: directory
+      run_once: yes
+      delegate_to: localhost
+
+    - name: confirm/create build directory
+      file:
+        path: "{{ facts_build_dir }}"
+        state: directory
+      run_once: yes
+      delegate_to: localhost
+
+    - name: Get Facts
+      juniper_junos_facts:
+      register: facts
+
+    - name: Get Serials
+      juniper_junos_command:
+        commands: "show chassis hardware "
+        format: json
+        dest_dir: "{{ facts_build_dir }}/"
+      register: serials
+
+    - name: debug
+      debug: 
+        msg: "{{ serials.parsed_output['chassis-inventory'] }}"
+
+    - name: save device facts
+      template:
+        src: templates/juniper-facts.j2
+        dest: "{{ facts_build_dir }}/{{ inventory_hostname }}.csv"
+
+    - name: copy column headers file
+      copy:
+        src: templates/juniper-facts-columns.txt
+        dest: "{{ facts_build_dir}}/AAAAAA.txt"
+      run_once: yes
+      delegate_to: localhost
+
+    - name: assemble inventory report
+      assemble:
+        src: "{{ facts_build_dir }}"
+        dest: "{{ report_file }}"
+      run_once: yes
+      delegate_to: localhost
+
+    

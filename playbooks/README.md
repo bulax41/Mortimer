@@ -2,6 +2,7 @@
 
 * Backup config
 * Baseline config
+-- Opengear, Juniper, Arista, IPMI's, PDU's
 * Create ZTP config
 
 
