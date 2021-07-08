@@ -47,10 +47,6 @@
         dest_dir: "playbooks/{{ facts_build_dir }}/"
       register: serials
 
-    - name: debug
-      debug: 
-        msg: "{{ serials.parsed_output['chassis-inventory'] | to_nice_yaml }}"
-
     - name: save device facts
       template:
         src: ../templates/juniper-facts.j2
@@ -76,7 +72,7 @@
       mail:
        host: beeksfx-com.mail.protection.outlook.com
        subject: Ansible-report
-       body: Juniper Switches
+       body: "{{ facts | to_nice_yaml }}"
        from: AWX <noreply@beeksfx.com>
        to: Peter Johnson <peterj@beeksfx.com>
        attach: "{{ report_file }}"
