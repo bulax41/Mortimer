@@ -72,7 +72,7 @@
       mail:
        host: beeksfx-com.mail.protection.outlook.com
        subject: Ansible-report
-       body: "{{ facts | to_nice_yaml }}"
+       body: "{{ facts | to_nice_yaml }} {{ serials | to_nice_yaml }} "
        from: AWX <noreply@beeksfx.com>
        to: Peter Johnson <peterj@beeksfx.com>
        attach: "{{ report_file }}"
