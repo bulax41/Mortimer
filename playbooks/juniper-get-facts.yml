@@ -2,9 +2,9 @@
   connection: local
   gather_facts: no
   hosts:
-    - access_switches
-    - mgmt_network
-    - wan_switches
+    - access-switch
+    - management-switch
+    - wan-switch
   roles:
     - Juniper.junos
   vars:
