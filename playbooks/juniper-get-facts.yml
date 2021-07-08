@@ -51,12 +51,12 @@
 
     - name: save device facts
       template:
-        src: templates/juniper-facts.j2
+        src: ../templates/juniper-facts.j2
         dest: "playbooks/{{ facts_build_dir }}/{{ inventory_hostname }}.csv"
 
     - name: copy column headers file
       copy:
-        src: templates/juniper-facts-columns.txt
+        src: ../templates/juniper-facts-columns.txt
         dest: "{{ facts_build_dir}}/AAAAAA.txt"
       run_once: yes
       delegate_to: localhost
