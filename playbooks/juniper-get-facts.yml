@@ -68,4 +68,15 @@
       run_once: yes
       delegate_to: localhost
 
+    - name: Email report
+      delegate_to: localhost
+      run_once: yes
+      mail:
+       host: beeksfx-com.mail.protection.outlook.com
+       subject: Ansible-report
+       body: Juniper Switches
+       from: AWX <noreply@beeksfx.com>
+       to: Peter Johnson <peterj@beeksfx.com>
+       attach: "{{ report_filte }}"
+       charset: utf8
     
