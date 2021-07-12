@@ -4,7 +4,7 @@
   vars:
    - file_server: "ipa254-mgmt-ld5"
   collections:
-    - opengear_om
+    - opengear.om
  
   tasks:
 
