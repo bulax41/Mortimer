@@ -31,6 +31,7 @@
         flat: yes
 
     - name: Add authorized key to opengear local ansible user
+      connection: httpapi
       opengear.om.om_users:
         config:
           system_authorized_keys:
