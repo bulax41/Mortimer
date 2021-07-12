@@ -1,0 +1,46 @@
+- name:  Copy images and config files to console server
+  gather_facts: no
+  hosts: ipa254-mgmt-ld5
+  vars:
+   - file_server: "ipa254-mgmt-ld5"
+ 
+  tasks:
+
+    - name: .ssh directory
+      delegate_to: "{{ file_server }}"
+      file:
+        path: "~/.ssh"
+        state: directory
+
+    - name: Generate SSH Keys
+      delegate_to: "{{ file_server }}"
+      openssh_keypair:
+        path: "~/.ssh/id_rsa"
+        type: rsa
+        size: 4096
+        state: present
+        force: no        
+
+    - name: Fetch SSH Key
+      delegate_to: "{{ file_server }}"
+      fetch:
+        src: "~/.ssh/id_rsa.pub"
+        dst: "."
+        flat: yes
+
+    - name: Copy to Console
+      authorized_key:
+        user: git
+        state: present
+        key: "{{ lookup('file','id_rsa.pub') }}"
+
+    - name: 
+      tags: sync-pull
+      copy:
+        src: "/ftpstuff/tftpboot/cloud"
+        dest: "/var/mnt/storage.sd/tftpboot"
+        mode: push
+      delegate_to: ipa254-mgmt-ld5
+
+
+
