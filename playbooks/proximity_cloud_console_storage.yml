@@ -1,6 +1,6 @@
 - name:  Copy images and config files to console server
   gather_facts: no
-  hosts: ipa254-mgmt-ld5
+  hosts: console
   vars:
    - file_server: "ipa254-mgmt-ld5"
  
