@@ -3,6 +3,8 @@
   hosts: console
   vars:
    - file_server: "ipa254-mgmt-ld5"
+  collections:
+    - opengear_om
  
   tasks:
 
@@ -28,11 +30,14 @@
         dest: "./id_rsa.pub"
         flat: yes
 
-    - name: Copy to Console
-      authorized_key:
-        user: git
-        state: present
-        key: "{{ lookup('file','id_rsa.pub') }}"
+    - name: Add authorized key to opengear local ansible user
+      opengear.om.om_users:
+        config:
+          system_authorized_keys:
+            - key: "{{ lookup('file','id_rsa.pub') }}"
+              username: ansible
+              id: users_ssh_authorized_keys-1
+        state: deleted
 
     - name: 
       tags: sync-pull

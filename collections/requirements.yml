@@ -4,4 +4,5 @@ collections:
   - name: juniper.device
   - name: netbox.netbox
   - name: community.general
+  - name: opengear.om
 
