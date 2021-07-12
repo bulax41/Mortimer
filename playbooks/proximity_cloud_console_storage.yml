@@ -25,7 +25,7 @@
       delegate_to: "{{ file_server }}"
       fetch:
         src: "~/.ssh/id_rsa.pub"
-        dest: "."
+        dest: "./id_rsa.pub"
         flat: yes
 
     - name: Copy to Console
