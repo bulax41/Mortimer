@@ -14,4 +14,5 @@
       format: "set"
       provider:
         timeout: 60
+      vars:
      register: response
