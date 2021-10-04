@@ -1,0 +1,11 @@
+- name: Juniper  Netconf Enable
+  gather_facts: no
+  hosts:
+    - ipc_vsrx
+  connection: ansible.netcommon.network_cli
+  remote_user: ansible
+
+  tasks:
+   - name: Enable Junos NETCONF
+     junipernetworks.junos.junos_netconf:
+      
