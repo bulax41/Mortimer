@@ -1,0 +1,17 @@
+- name: Juniper vSRX IPC System Config Template
+  gather_facts: no
+  hosts:
+    - ipc-vsrx
+  remote_user: ansible
+  roles:
+    - Juniper.junos
+
+  tasks:
+   - name: Merge Config
+     juniper_junos_config:
+      template: templates/juniper-vsrx-ipc-system-config.j2
+      load: "merge"
+      format: "set"
+      provider:
+        timeout: 60
+     register: response
