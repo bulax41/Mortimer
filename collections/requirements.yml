@@ -5,4 +5,4 @@ collections:
   - name: netbox.netbox
   - name: community.general
   - name: opengear.om
-
+  - name: junipernetworks.junos
