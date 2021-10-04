@@ -24,8 +24,8 @@ query_filters:
   - role: console-server
   - role: vps-switch
   - role: backup-switch
+  - role: ipc_vsrx
 device_query_filters:
   - has_primary_ip: 'true'
 interfaces: 'false'
 group_names_raw: 'true'
-
