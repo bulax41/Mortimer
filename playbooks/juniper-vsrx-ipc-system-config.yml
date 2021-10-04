@@ -1,7 +1,7 @@
 - name: Juniper vSRX IPC System Config Template
   gather_facts: no
   hosts:
-    - ipc-vsrx
+    - ipc_vsrx
   remote_user: ansible
   roles:
     - Juniper.junos
