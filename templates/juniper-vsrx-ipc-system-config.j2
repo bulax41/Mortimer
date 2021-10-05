@@ -27,6 +27,7 @@ set system login user super-users uid 2008
 set system login user super-users class super-user
 set system root-authentication encrypted-password "$6$Wl4E3Cds$iAvYdHlg8TRzJ0jz6JXNMD0m7oavqZo9OUDC1TKi5ReHM5OMA5m9mSjAfCmNO/DSEwmBhoPNaa8MNHwzXyjOd."
 set system services ssh root-login deny
+set system services netconf ssh port 830
 set system time-zone UTC
 set system authentication-order password
 set system authentication-order radius
