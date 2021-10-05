@@ -9,3 +9,4 @@
    - name: Enable Junos NETCONF
      junipernetworks.junos.junos_netconf:
       state: present
+     register: response
